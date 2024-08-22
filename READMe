@@ -1,0 +1,20 @@
+
+import cv2
+
+# فتح الكاميرا
+cap = cv2.VideoCapture(0)
+
+while True:
+    # قراءة الإطار من الكاميرا
+    ret, frame = cap.read()
+    
+    # عرض الإطار
+    cv2.imshow('Camera', frame)
+    
+    # الخروج عند الضغط على مفتاح 'q'
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# تحرير الكاميرا وإغلاق النوافذ
+cap.release()
+cv2.destroyAllWindows()
